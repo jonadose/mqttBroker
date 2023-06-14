@@ -1,4 +1,4 @@
-# Mqtt Brokerr 
+# Mqtt Broker
 a very simple mqtt broker. 
 as vanilla as it gets, only some logging. 
 
