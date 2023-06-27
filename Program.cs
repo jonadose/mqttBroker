@@ -2,7 +2,7 @@
 using MQTTnet.Server;
 using System.Text;
 
-Console.WriteLine("Mqtt Broker is starting!");
+Console.WriteLine("Mqtt Broker is started.");
 
 // Create the options for MQTT Broker
 var options = new MqttServerOptionsBuilder()
@@ -25,8 +25,9 @@ static Task Server_InterceptingPublishAsync(InterceptingPublishEventArgs arg)
         DateTime.Now,
         arg.ClientId,
         arg.ApplicationMessage?.Topic,
-        Encoding.UTF8.GetString(arg.ApplicationMessage?.Payload),
+        Encoding.UTF8.GetString(arg.ApplicationMessage.PayloadSegment),
         arg.ApplicationMessage?.QualityOfServiceLevel,
         arg.ApplicationMessage?.Retain);
+
     return Task.CompletedTask;
 }
